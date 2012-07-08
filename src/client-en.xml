@@ -5,7 +5,7 @@
 <link rel="icon" href="/favicon.ico" />
 <!-- command set_rel_base_url -->
 <style><![CDATA[
-.ui-button
+.preload-button
 {
   background: #e6e6e6 repeat-x -o-linear-gradient(-90deg,
                                                   rgba(255, 255, 255, 0.75) 0,
@@ -22,7 +22,7 @@
   -o-transition: background-color 0.2s;
 }
 
-.ui-button:not([disabled]):active
+.preload-button:not([disabled]):active
 {
   background-color: #c6c6c6;
   background-image: -o-linear-gradient(-90deg,
@@ -32,7 +32,7 @@
               inset 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
-.ui-button:empty::before
+.preload-button:empty::before
 {
   content: "";
   display: block;
@@ -148,8 +148,8 @@ window.load_screen_timeout = window.setTimeout(function()
     #start-window-reload::before {background-image: url('data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARZJREFUGBm1wU8ow3EYwOG3yXXF1Z3DUur92oZms/m3GpcNRU5S/m5FqyUHix2UCymt7CC5OhBKDuIkqUkcqBV3FxeW+FguPzM5KM8j8g+0VmOa1gmtkp9opR4YnLhwYvKalFLuzXr8z4ls8nzwoRkXmpDvHofjl7k1woSIbhwFcL9qjRSjnB7s8gkTuwngX5HfLC8FCWbFoguKoR6D5rVTCkanQkSuxRJdb6GddrzvmUMcUtB23MX0rljiqT4mGWf+AqeIlmmyjdaXswGxzI1FmCVO/5v71GyZnAcvmT3sYlnsbiBxNZP14aORJjqeDnYw8lW6buSWXsL3mxtHqyfb+6SolmJ3FfkhKcCOwYNDSmHDJn/3AZHHgNnzMRSAAAAAAElFTkSuQmCC');} \
   /*\u005d\u005d\u003e*/</style> \
   <div style='width: 330px; margin: auto;'> \
-    <span class='ui-button' id='start-window-close' onclick='window.close()' tabindex='1'></span> \
-    <span class='ui-button' id='start-window-reload' onclick='window.location.reload()' tabindex='1'></span> \
+    <span class='preload-button' id='start-window-close' onclick='window.close()' tabindex='1'></span> \
+    <span class='preload-button' id='start-window-reload' onclick='window.location.reload()' tabindex='1'></span> \
   </div> \
   <h1 style='height:100px; \
       clear: both; \
@@ -157,7 +157,7 @@ window.load_screen_timeout = window.setTimeout(function()
       margin:0; \
       padding:0; \
       color:#ccc; \
-      background-color:#fff; \
+      background-color:transparent; \
       font-family:sans-serif; \
       font-weight:normal !important; \
       font-size:30px !important; \
@@ -172,34 +172,7 @@ window.load_screen_timeout = window.setTimeout(function()
 <!-- the following two directives will make dfbuild concatenate all css and js respectively into the named files. -->
 <!-- command concat_css "./style/dragonfly.css" -->
 <!-- command concat_js "./script/dragonfly.js" -->
-
-<link rel="stylesheet" href="./ui-style/ui.css"/>
-<link rel="stylesheet" href="./ui-style/overlay.css"/>
-<link rel="stylesheet" href="./ui-style/tabs.css"/>
-<link rel="stylesheet" href="./ui-style/debugger_style.css"/>
-<link rel="stylesheet" href="./ui-style/js-source.css"/>
-<link rel="stylesheet" href="./ui-style/syntax-highlight.css"/>
-<link rel="stylesheet" href="./ui-style/dialog.css"/>
-<link rel="stylesheet" href="./console-logger/consolelogger_style.css"/>
-<link rel="stylesheet" href="./ui-style/colorpickerstyle.css"/>
-<link rel="stylesheet" href="./ui-scripts/sortable_table/sortable_table.css"/>
-<link rel="stylesheet" href="./ui-scripts/metadata_drawer/metadata_drawer.css"/>
-<link rel="stylesheet" href="./ui-scripts/ruler/style.css"/>
-<link rel="stylesheet" href="./repl/repl_style.css"/>
-<link rel="stylesheet" href="./resource-manager/resource_style.css"/>
-<link rel="stylesheet" href="./network/network_style.css"/>
-<link rel="stylesheet" href="./shortcutconfig/style.css"/>
-<link rel="stylesheet" href="./ui-style/global_command_line.css"/>
-<link rel="stylesheet" href="./ui-style/contextmenu.css"/>
-<link rel="stylesheet" href="./cookie-manager/cookie_manager_style.css"/>
-<link rel="stylesheet" href="./searches/style.css"/>
-<link rel="stylesheet" href="./ecma-debugger/breakpoints/style.css"/>
-<link rel="stylesheet" href="./storage/storage_style.css"/>
-<link rel="stylesheet" href="./screenshot/style.css"/>
-<link rel="stylesheet" href="./profiler/profiler_style.css"/>
-<link rel="stylesheet" href="./ui-scripts/tooltip/tooltip.css"/>
-
-
+<link rel="stylesheet" href="./ui-style/style.css"/>
 
 
 <!-- This will turn off including of the UI strings if the exclude_uistrings var is set -->

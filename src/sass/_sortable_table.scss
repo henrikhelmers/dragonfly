@@ -1,0 +1,197 @@
+﻿/* NOTE: There are two types of table styles.          */
+/*       - .sortable-table for real table elements     */
+/*       - .sortable-table-style-list for lists        */
+/* TODO: Decide on 'one best practice' for tables      */
+
+ .sortable-table
+{
+  width: 100%;
+  border-collapse: collapse;
+  &.nowrap
+  {
+    white-space: nowrap;
+  }
+  > tr
+  {
+    &:nth-child(even)
+    {
+      background-color: rgba(#000, 0.03);
+    }
+    &:last-child
+    { 
+      border-bottom: 1px solid $dimmed-border-color;
+    }
+    &:hover,
+    &.hovered
+    {
+      background-color: $hover-color;
+      color: #000;
+    }
+    &.selected
+    {
+      background-color: $selected-color;
+      color: #fff;
+      border-color: #6c94d3;
+    }
+    &.header
+    {
+      > th:not(.sortable-table-group-header):active
+      {
+        background-color: rgba(#000, 0.06);
+      }      
+    }
+    &.header,
+    &.header:hover
+    {
+      background-color: $toolbar-background-color;
+      background-image: -o-linear-gradient(-90deg,
+                                           rgba(#fff, 0.85) 0,
+                                           rgba(#fff, 0.25) 100%);
+      border-bottom: 1px solid $dimmed-border-color;
+      font-weight: normal;
+    }
+    > th,
+    > td    
+    {
+      border: 0 solid $dimmed-border-color;
+      border-left-width: 1px;
+      padding: 4px 5px;
+      text-align: left;
+      overflow: hidden;
+      min-width: 12px;
+      &:first-child
+      {
+        border-left-width: 0;
+      }
+    }
+    > th
+    {
+      word-wrap: normal;
+    }
+    > td
+    {
+      &.align-center
+      {
+        text-align: center;
+        padding: 4px 5px 1px 5px;
+      }
+      &.align-right
+      {
+        text-align: right;
+        padding: 4px 5px 1px 5px;
+      }
+      &.align-justify 
+      {
+        text-align: justify;
+      }
+    }
+  }
+  > tr.header,
+  > tr.header:hover,
+  > tr.header:active,
+  > .sortable-table-group-header,
+  > .sortable-table-group-header:hover,
+  > .sortable-table-group-header:active
+  {
+    color: #444;
+    background-color: rgba(#000, 0.12);
+  }
+  tr:last-child.sortable-table-summation-row
+  {
+    border-bottom-width: 0;
+  }
+  .sortable-table-summation-row
+  {
+    border-top-width: 1px;
+    background-color: transparent;
+  }  
+  /* ellipsis */
+  .ellipsis_cont
+  {
+    position: relative;
+    .ellipsis
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+  td .ellipsis_cont
+  {
+    /*
+      because .ellipsis is the only things that lives in this container,
+      height needs to be specified to take room
+    */
+    height: 13px;
+  }
+  
+  th .ellipsis_cont
+  {
+    /* header row is lower */
+    height: 1em;
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+}
+
+/* TODO: Using JS-based :hover and has no :active state. */
+.sortable-table-style-list
+{
+  li
+  {
+    line-height: 13px;
+    &:nth-child(odd)
+    {
+      background-color: rgba(#000, 0.03);
+    }
+    &:last-child
+    { 
+      border-bottom: 1px solid $dimmed-border-color;
+    }
+    &.hovered
+    {
+      background-color: $hover-color;
+      color: #000;
+    }
+    &.selected
+    {
+      background-color: $selected-color;
+      color: #fff;
+      border-color: #6c94d3;
+    }
+  }
+}
+
+.sort-column
+{
+  position: relative;
+  &:before
+  {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 4px;
+    width: 15px;
+    height: 19px;
+    display: block;
+    background-image: url("../ui-images/dropup.png");
+  }
+  &.reversed
+  {
+    &:before
+    {
+      background-image: url("../ui-images/dropdown.png");
+    }
+  }
+}
+
+th.sort-column
+{
+  padding-right: 12px;
+}

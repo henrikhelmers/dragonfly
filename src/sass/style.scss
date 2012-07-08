@@ -1,0 +1,48 @@
+﻿/* OPERA DRAGONFLY SYNTACTICALLY AWESOME STYLESHEETS        */
+/*                                                          */
+/* Automatically rebuild styles with SASS:                  */
+/*  - open a terminal, go to 'dragonfly/src/'               */
+/*  - 'sass --watch sass:ui-style --style compressed'       */
+
+
+/* VARIABLES: Color palette                                  */
+$base-background-color: #e6e6e6;
+$base-foreground-color: #444;
+$base-border-color: #999;
+
+$toolbar-background-color: #e9e9e9;
+
+$dimmed-foreground-color: rgba($base-foreground-color, 0.75);
+$dimmed-border-color: rgba($base-border-color, 0.4);
+
+$hover-color: rgba(#89ade8, 0.2);
+$selected-color: rgba(#3773d4, 0.7);
+
+
+/* Dragonfly core styling */
+@import "ui";
+@import "debugger_style";
+@import "overlay";
+@import "tabs";
+@import "shortcutconfig";
+@import "icons";
+@import "contextmenu";
+@import "searches";
+@import "tooltip";
+@import "syntax-highlight";
+@import "colorpicker";
+@import "sortable_table";
+@import "domtree";
+@import "commandline";
+
+
+/* Customized views */
+@import "documents";
+@import "scripts";
+@import "network";
+@import "resources";
+@import "storage";
+@import "profiler";
+@import "errors";
+@import "utilities";
+@import "console";

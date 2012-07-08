@@ -1,0 +1,269 @@
+﻿/* Icons: Window control buttons */
+#toggle-console::before
+{
+  background-image: url("../ui-images/icons/icon_console.png");
+}
+
+#toggle-settings-overlay::before
+{
+  background-image: url("../ui-images/icons/icon_settings.png");
+}
+
+#toggle-remote-debug-overlay::before
+{
+  background-image: url("../ui-images/icons/icon_remote.png");
+}
+
+#toggle-remote-debug-overlay.remote-active::before
+{
+  background-image: url("../ui-images/icons/icon_remote_active.png");
+}
+
+#toggle-remote-debug-overlay.alert::before
+{
+  background-image: url("../ui-images/icons/icon_remote_alert.png");
+}
+
+#top-window-toggle-attach::before
+{
+  background-image: url("../ui-images/icons/icon_attach.png");
+}
+
+#top-window-toggle-attach.attached::before
+{
+  background-image: url("../ui-images/icons/icon_detach.png");
+}
+
+#top-window-close::before
+{
+  background-image: url("../ui-images/icons/icon_close.png");
+}
+
+
+/* Icons: View buttons */
+.search::before
+{
+  background-image: url("../ui-images/icons/icon_search.png");
+}
+
+.dom-inspection-snapshot::before
+{
+  background-image: url("../ui-images/icons/icon_expand.png");
+}
+
+.dom-inspection-export::before
+{
+  background-image: url("../ui-images/icons/icon_export.png");
+}
+
+.dom\.find-with-click::before
+{
+  background-image: url("../ui-images/icons/icon_click.png");
+}
+
+.dom\.highlight-on-hover::before
+{
+  background-image: url("../ui-images/icons/icon_hover.png");
+}
+
+.dom\.update-on-dom-node-inserted::before
+{
+  background-image: url("../ui-images/icons/icon_update_on_delete.png");
+}
+
+.dom\.lock-selected-elements::before
+{
+  background-image: url("../ui-images/icons/icon_border.png");
+}
+
+.stylesheets.shortcuts::before
+{
+  background-image: url("../ui-images/icons/icon_shorthand.png");
+}
+
+.css-comp-style\.show-initial-values::before
+{
+  background-image: url("../ui-images/icons/icon_hidedefaults.png");
+}
+
+.css-inspector.hide-shorthands::before
+{
+  background-image: url("../ui-images/icons/icon_shorthand.png");
+}
+
+.dom_attrs.hide-null-values::before
+{
+  background-image: url("../ui-images/icons/icon_empty.png");
+}
+
+#continue-run::before
+{
+  background-image: url("../ui-images/icons/icon_play.png");
+}
+
+#continue-step-into-call::before
+{
+  background-image: url("../ui-images/icons/icon_stepinto.png");
+}
+
+#continue-step-next-line::before
+{
+  background-image: url("../ui-images/icons/icon_stepover.png");
+}
+
+#continue-step-out-of-call::before
+{
+  background-image: url("../ui-images/icons/icon_stepout.png");
+}
+
+.js_source\.script::before
+{
+  background-image: url("../ui-images/icons/icon_haltonscript.png");
+}
+
+.js_source\.error::before
+{
+  background-image: url("../ui-images/icons/icon_haltonerror.png");
+}
+
+.js_source\.reformat_javascript::before
+{
+  background-image: url("../ui-images/icons/icon_reformat.png");
+}
+
+.threads\.log-threads::before
+{
+  background-image: url("../ui-images/icons/icon_threads.png");
+}
+
+.inspection\.show-prototypes::before
+{
+  background-image: url("../ui-images/icons/icon_prototype.png");
+}
+
+.inspection\.show-non-enumerables::before
+{
+  background-image: url("../ui-images/icons/icon_hidedefaults.png"); /* temporarily using this icon */
+}
+
+.inspection\.show-default-nulls-and-empty-strings::before
+{
+  background-image: url("../ui-images/icons/icon_empty.png");
+}
+
+.threads-clear-log::before
+{
+  background-image: url("../ui-images/icons/icon_clear.png");
+}
+
+.threads-export-log::before
+{
+  background-image: url("../ui-images/icons/icon_export.png");
+}
+
+.clear-request-list::before
+{
+  background-image: url("../ui-images/icons/icon_clear.png");
+}
+
+.clear-log-network-view::before
+{
+  background-image: url("../ui-images/icons/icon_clear.png");
+}
+
+.network-view-toggle-graphs:before
+{
+  background-image: url("../ui-images/icons/icon_graph.png");
+}
+
+.network-view-toggle-data:before
+{
+  background-image: url("../ui-images/icons/icon_table.png");
+}
+
+.request_list\.clear-log-on-runtime-switch::before
+{
+  background-image: url("../ui-images/icons/icon_clearonreload.png");
+}
+
+.request_list\.auto-scroll-request-list::before
+{
+  background-image: url("../ui-images/icons/icon_autoscroll.png");
+}
+
+.storage-delete
+{
+  background-image: url("../ui-images/icons/icon_clear.png");
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+}
+
+.clear-log::before
+{
+  background-image: url("../ui-images/icons/icon_clear.png");
+}
+
+.console\.expand-all-entries::before
+{
+  background-image: url("../ui-images/icons/icon_expand.png");
+}
+
+.disable-all-breakpoints::before,
+.ev-brp-remove-all-breakpoints::before
+{
+  background-image: url("../ui-images/icons/icon_disable.png");
+}
+
+.delete-all-breakpoints::before
+{
+  background-image: url("../ui-images/icons/icon_clear.png");
+}
+
+.ev-brp-expand-all-sections::before
+{
+  background-image: url("../ui-images/icons/icon_expand.png");
+}
+
+.network_logger\.pause::before
+{
+  background-image: url("../ui-images/icons/icon_pause.png");
+}
+
+.network_logger\.network-profiler-mode::before
+{
+  background-image: url("../ui-images/icons/icon_network_profiler.png");
+}
+
+.profiler-start-stop::before
+{
+  background-image: url("../ui-images/icons/icon_record.png");
+}
+
+.profiler_all\.zero-at-first-event::before
+{
+  background-image: url("../ui-images/icons/icon_zero_at_first_event.png");
+}
+
+.pseudo-items cst-icon
+{
+  background-image: url("../ui-images/icons/icon_hidedefaults.png");
+}
+
+cst-icon[class="debugger-menu"]
+{
+  background-image: url("../ui-images/icons/icon_tabs.png");
+}
+
+/* TODO: Classify the icons below. */
+.reload-window::before
+{
+  background-image: url("../ui-images/icons/icon_reload.png");
+}
+
+.ui-button[key="request_list.expand-all-entries"]:before
+{
+  background-image: url('../ui-images/btn-log-threads.png');
+}
+

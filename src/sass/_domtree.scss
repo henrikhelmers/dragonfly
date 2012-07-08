@@ -1,0 +1,38 @@
+﻿.dom-tree {
+  display: table;
+  /* TODO: See if we can get rid of !important */
+  padding-left: 21px !important;
+  width: 100%;
+  .pre-wrap
+  {
+    white-space: pre-wrap;
+  }
+  div:not(.tree-style):not(.info-box)
+  {
+    padding-left: 1px;
+    padding-right: 3px;
+  }
+  div:not(.info-box)
+  {
+    margin: -2px 0;
+  }
+  input
+  {
+    border: 0;
+    padding: 0;
+    margin: 0 2px 0 -15px;
+    height: 13px; /* Make space for outline to appear outside the control */
+    width: 13px;
+    color: #666;
+    background: transparent url('../ui-images/expand-collapse.png') 1px 1px no-repeat;
+    &.open
+    {
+      background-position: 1px -14px;
+    }
+    &:focus
+    {
+      outline: 2px solid #598bec;
+      outline-offset: -2px; /* Hides the normal (dotted) outline when pressing Enter on the expand/collapse button */
+    }
+  }
+}

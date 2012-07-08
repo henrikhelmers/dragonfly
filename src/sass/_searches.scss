@@ -65,12 +65,11 @@
 {
   border-collapse: collapse;
   width: 100%;
-}
-
-.advanced-search-table td
-{
-  padding: 0;
-  vertical-align: top;
+  td
+  {
+    padding: 0;
+    vertical-align: top;
+  }
 }
 
 .search-info-badge
@@ -94,23 +93,20 @@
   background-color: hsl(0, 0%, 97%);
   padding: 3px;
   box-sizing: border-box;
-}
-
-.advanced-search-controls filter
-{
-  margin-right: 0;
-}
-
-.advanced-search-controls form
-{
-  clear: both;
-  padding-top: 3px;
-}
-
-.advanced-search-controls label
-{
-  white-space: pre;
-  display: inline-block;
+  filter
+  {
+    margin-right: 0;
+  }
+  form
+  {
+    clear: both;
+    padding-top: 3px;
+  }
+  label
+  {
+    white-space: pre;
+    display: inline-block;
+  }
 }
 
 .panel-search-container
@@ -175,27 +171,29 @@
   border-radius: 0;
   background: none;
   box-shadow: none;
+  > input
+  {
+    width: 100%;
+  }
 }
 
-.panel-search-input-container > input
+.advanced-search 
 {
-  width: 100%;
-}
-
-.advanced-search .ui-button
-{
-  margin-top: -1px;
-  vertical-align: top;
-}
-
-.advanced-search .search-move-highlight-up::before
-{
-  background-image: url("../ui-images/icons/icon_arrow_left.png");
-}
-
-.advanced-search .search-move-highlight-down::before
-{
-  background-image: url("../ui-images/icons/icon_arrow_right.png");
+  .ui-button
+  {
+    margin-top: -1px;
+    vertical-align: top;
+  }
+  
+  .search-move-highlight-up::before
+  {
+    background-image: url("../ui-images/icons/icon_arrow_left.png");
+  }
+  
+  .search-move-highlight-down::before
+  {
+    background-image: url("../ui-images/icons/icon_arrow_right.png");
+  }
 }
 
 /* for notification if the search produces more than the max displayable hits */
@@ -218,7 +216,6 @@
 
 
 /* JS search */
-
 .js-search-results-runtime h2
 {
   background-color: hsl(0, 0%, 95%);
@@ -236,25 +233,23 @@
 .js-search-results-script
 {
   margin-bottom: -1px;
-}
-
-.js-search-results-script h3
-{
-  color: hsl(0, 0%, 20%);
-  margin: 0;
-  font: inherit;
-  padding: 5px;
-  word-wrap: break-word;
-}
-
-.js-search-results-script code
-{
-  display: block;
-  word-wrap: break-word;
-  padding: 5px;
-  margin: -1px;
-  margin-left: 7.5ex;
-  border-left: 1px solid hsl(0, 0%, 85%);
+  h3
+  {
+    color: hsl(0, 0%, 20%);
+    margin: 0;
+    font: inherit;
+    padding: 5px;
+    word-wrap: break-word;
+  }
+  code
+  {
+    display: block;
+    word-wrap: break-word;
+    padding: 5px;
+    margin: -1px;
+    margin-left: 7.5ex;
+    border-left: 1px solid hsl(0, 0%, 85%);
+  }
 }
 
 .line-no

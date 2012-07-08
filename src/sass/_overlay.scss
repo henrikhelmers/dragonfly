@@ -1,4 +1,4 @@
-﻿overlay
+﻿.overlay
 {
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -6,31 +6,86 @@
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 300; /* Need to clean this up, there is no reason for z-index to ever be this high. */
-  padding: 0 30px;
-}
-
-overlay.active
-{
-  display: block;
+  z-index: 3;
+  &.active {
+    display: block;  
+  }
+  fieldset,
+  hr
+  {
+    border: 1px solid rgba(255, 255, 255, 0.1);  
+  }
+  fieldset
+  {
+    margin: 10px 5px 10px 5px;
+    color: #a0a0a0;
+    legend
+    {
+      color: #fff;
+    }
+  }
+  hr
+  {
+    border-width: 0 0 1px;
+  }
+  input
+  {
+    color: #fff;
+  }
+  #ui-dialog
+  {
+    display: inline-block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border: 2px solid rgb(177, 177, 177);
+    border-radius: 7px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    max-width: 500px;
+    visibility: hidden;
+    &.visible
+    {
+      position: absolute;
+      visibility: visible;
+    }
+    #ui-dialog-buttons
+    {
+      margin-top: 5px;
+      text-align: right;
+      .ui-button
+      {
+        margin-left: 5px;
+      }
+    }
+    
+    #ui-dialog-message
+    {
+      white-space: pre-wrap;
+    }
+  }
 }
 
 overlay-window
 {
   color: #fff;
   border-radius: 5px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
-              0 1px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 0 1px rgba(#000, 0.2),
+              0 1px 6px rgba(#000, 0.6);
   background: #2e2e2e;
   width: 650px;
   border: 2px solid #b1b1b1;
-  display: block;
   position: absolute;
   height: 80%;
   max-height: 600px;
   right: 20px;
 }
 
+/* TODO: Rewrite into a :before rule on the overlay-window */
 overlay-arrow
 {
   width: 24px;
@@ -39,27 +94,21 @@ overlay-arrow
   top: -12px;
   text-align: center;
   overflow: hidden;
-}
-
-overlay-arrow:before
-{
-  content: "";
-  display: inline-block;
-  position: relative;
-  width: 12px;
-  height: 12px;
-  top: 7px;
-  -o-transform: rotate(225deg);
-  background-color: #2e2e2e;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
-              2px 2px 0 0 #b1b1b1,
-              3px 3px 1px 0px rgba(0, 0, 0, 0.1);
-
-}
-
-overlay-window h2
-{
-  font-size: 1em;
+  &:before
+  {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    top: 7px;
+    -o-transform: rotate(225deg);
+    background-color: #2e2e2e;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+                2px 2px 0 0 #b1b1b1,
+                3px 3px 1px 0px rgba(0, 0, 0, 0.1);
+  
+  }
 }
 
 overlay-tabs,
@@ -76,36 +125,46 @@ overlay-tabs
   padding: 5px 5px 0;
   overflow: hidden;
   white-space: nowrap;
+  tab
+  {
+    border-radius: 5px 5px 0 0;
+    padding: 0 15px;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 5px;
+    color: #bbb;
+    display: inline-block;
+    float: none;
+    position: static;
+    border: none;
+    &:hover
+    {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    &.active
+    {
+      color: #fff;
+      border-color: #000;
+      background: rgba(0, 0, 0, 0.38);
+      cursor: auto;
+    }
+  }
 }
 
-overlay-tabs tab
+overlay-content
 {
-  border-radius: 5px 5px 0 0;
-  padding: 0 15px;
-  height: 25px;
-  line-height: 25px;
-  margin-right: 5px;
-  color: #bbb;
-  display: inline-block;
-  float: none;
-  position: static;
-  border: none;
-}
-
-overlay-tabs tab:hover
-{
-  background: rgba(0, 0, 0, 0.2);
-}
-
-overlay-tabs tab.active
-{
-  color: #fff;
-  border-color: #000;
+  position: absolute;
+  top: 31px;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  overflow: auto;
   background: rgba(0, 0, 0, 0.38);
-  cursor: auto;
+  border-radius: 0 0 5px 5px;
+  border-top-width: 0;
+  left: 0;
 }
 
-overlay-content,
 overlay-info
 {
   position: absolute;
@@ -114,74 +173,33 @@ overlay-info
   right: 0;
   padding: 10px;
   overflow: auto;
-}
-
-overlay-content
-{
-  background: rgba(0, 0, 0, 0.38);
-  border-radius: 0 0 5px 5px;
-  border-top-width: 0;
-  left: 0;
-}
-
-overlay-info:not(:empty) + overlay-content
-{
-  padding-right: 200px;
-}
-
-overlay-info:not(:empty)
-{
-  z-index: 2;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  width: 180px;
-}
-
-overlay-info p
-{
-  margin: 0 0 8px;
-}
-
-overlay-info ol
-{
-  margin: 0;
-  padding: 0 0 0 20px;;
-}
-
-overlay-info li
-{
-  margin-bottom: 8px;
-}
-
-overlay fieldset,
-overlay hr
-{
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-overlay fieldset
-{
-  margin: 10px 5px 10px 5px;
-  color: #a0a0a0;
-}
-
-overlay fieldset legend
-{
-  color: #fff;
-}
-
-overlay hr
-{
-  border-width: 0 0 1px;
-}
-
-.overlay input
-{
-  color: #fff;
+  &:not(:empty)
+  {
+    z-index: 2;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    width: 180px;
+    + overlay-content
+    {
+      padding-right: 200px;
+    }
+  }
+  p
+  {
+    margin: 0 0 8px;
+  }
+  ol
+  {
+    margin: 0;
+    padding: 0 0 0 20px;;
+  }  
+  li
+  {
+    margin-bottom: 8px;
+  }
 }
 
 
 /* Input Fields, Drop Downs */
-
 .overlay input[type='text']:not([default-text]):not([placeholder]),
 .overlay input[type='number'], 
 .overlay select,
@@ -213,7 +231,6 @@ overlay hr
 
 
 /* Buttons */
-
 .overlay .ui-button,
 .console .ui-button,
 .hud .ui-control, /* TODO class should be changed to .overlay ... */

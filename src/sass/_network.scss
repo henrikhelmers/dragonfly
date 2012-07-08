@@ -1,0 +1,423 @@
+﻿h2
+{
+  font-size: 125%;
+  margin: 15px 0 10px 0;
+}
+
+/* Network log / Overview */
+.network_logger
+{
+  min-width: 580px;
+}
+
+#network-outer-container
+{
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+#network-url-list-container
+{
+  width: 40%;
+  min-width: 230px; /* value duplicated in network_view */
+}
+
+.network-main-container
+{
+  width: 60%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  .graphs
+  {
+    margin-top: 10px;
+  }
+  
+  .data
+  {
+    margin-top: 9px;
+  }
+  
+  #graph
+  {
+    background-image: -o-linear-gradient(0deg, $dimmed-border-color 0px, $dimmed-border-color 1px, transparent 1px);
+    background-position: 0 21px;
+    background-repeat: repeat-x;
+  }
+}
+
+.network-graph-row
+{
+  line-height: 14px;
+  padding-bottom: 3px;
+  padding-top: 1px;
+  &:nth-child(even)
+  {
+    background-color: rgba(#000, 0.03);
+  }
+  &:last-child
+  { 
+    border-bottom: 1px solid $dimmed-border-color;
+  }
+  &.hovered
+  {
+    background-color: $hover-color;
+  }
+  &.selected
+  {
+    background-color: $selected-color;
+    border-color: #6c94d3;
+  }
+}
+
+.network-timeline-row
+{
+  height: 22px;
+  padding-top: 2px;
+  position: relative;
+}
+
+.timeline-marker
+{
+  width: 60px;
+  line-height: 21px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  color: $dimmed-foreground-color;
+}
+
+.network-log-url-list
+{
+  padding-top: 23px;
+  margin-top: 11px;
+  .not_requested
+  {
+    color: $dimmed-foreground-color;
+  }
+  .error_response
+  {
+    color: #d2001c !important;
+    &.selected
+    {
+      color: #3d0008;
+    }
+  }
+  li
+  {
+    .network-url
+    {
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-bottom: 6px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      display: inline-block;
+      max-width: 88%;
+      line-height: 13px;
+    }
+  }
+}
+
+.network-data-container .sortable-table > tr.header:first-child
+{
+  border-width: 0;
+  color: $dimmed-foreground-color;
+}
+
+.network-log-url-list .log-url-list-status
+{
+  width: 30px;
+  text-align: center;
+  margin: 0 2px;
+  padding: 2px 2px;
+  border-radius: 3px;
+}
+
+.network-log-url-list .resource-icon
+{
+  margin-left: 5px;
+}
+
+.network-log-url-list .load-origin-xhr::before
+{
+  content: "";
+  background-image: url("../ui-images/load_origin_xhr.png");
+  width: 15px;
+  height: 9px;
+  display: inline-block;
+  margin-left: 4px;
+  margin-top: 9px;
+}
+
+.network_incomplete_warning
+{
+  margin-top: 15px;
+  position: relative;
+}
+
+.network-main-container .sortable-table > tr.header,
+.network-main-container .sortable-table > tr.header:hover
+{
+  background: transparent;
+  border-bottom-width: 0;
+  color: $dimmed-foreground-color;
+}
+
+.network_logger .network-main-container .sortable-table td
+{
+  padding-bottom: 6px;
+  padding-top: 5px;
+  line-height: 13px;
+}
+
+.network_logger .network-main-container .sortable-table th
+{
+  padding-bottom: 7px;
+  padding-top: 5px;
+  padding-right: 13px;
+  line-height: 13px;
+  border-left-color: $dimmed-border-color;
+}
+
+/* Network log / Detail view */
+.network_logger .close-request-detail,
+.network_logger .close_incomplete_warning
+{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  padding: 1px;
+  background-color: rgba(#000, 0.18);
+  &:before
+  {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: transparent url("../ui-images/icons/icon_close_tab_small.png") 50% 50% no-repeat;
+  }
+  &:active
+  {
+    background-color: rgba(#000, 0.28);
+    box-shadow: 0 1px #fff,
+                inset 0 1px 1px rgba(#000, 0.15),
+                inset 0 0 4px rgba(#000, 0.05);
+  }
+}
+
+.network_logger .close_incomplete_warning
+{
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+
+.close-request-detail
+{
+  position: absolute;
+  left: 12px;
+  top: 7px;
+  cursor: default;
+}
+
+/* TODO: Unify with the view-slider */
+.network_logger .resize-request-detail
+{
+  position: absolute;
+  height: 100%;
+  width: 12px;
+  left: -6px;
+  cursor: col-resize;
+  &:active
+  {
+    background-color: #cacaca;
+  }
+}
+
+.network-details-container
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  left: 120px;
+  table
+  {
+    border-collapse: collapse;
+  }
+  td,
+  th
+  {
+    vertical-align: top;
+    word-wrap: break-word;  
+  }
+  th
+  {
+    text-align: left;
+    padding-right: 30px;
+    width: 140px;
+    white-space: nowrap;
+  }
+  hr
+  {
+    border: none;
+    border-top: 1px solid #a4a4a4;
+  }
+  img.network-body
+  {
+    margin-top: 2em;
+  }
+}
+
+.network_logger .request-details
+{
+  overflow: auto;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 27px 20px 37px 0;
+  background-color: #fff;
+  /* using border-left instead of padding-left to keep the 
+     space for the close button when scrolling horizontally */
+  border-left: 28px solid transparent;
+  box-shadow: 0 5px 6px rgba(#000, 0.39),
+              0 2px 2px 1px rgba(#000, 0.28),
+              -1px 0 0 rgba(#000, 0.05);
+}
+
+.network_logger .network-summary
+{
+  clear: both;
+  text-align: center;
+  div
+  {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.4em;
+    margin: 18px 0;
+    color: $dimmed-foreground-color;
+  }
+}
+
+.network_logger .network-main-container .sortable-table .network-graph-column
+{
+  line-height: 0;
+  padding-top: 5px;
+}
+
+.network-graph-sections-hitarea
+{
+  display: inline-block;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.hovered .network-graph-sections-hitarea
+{
+  background-color: rgba(#fff, 0.3);
+}
+
+.network-graph-sections
+{
+  display: inline-block;
+  height: 12px;
+  vertical-align: middle;
+  border-radius: 3px;
+  min-width: 3px;
+  /* fallback, only visible when the sections together are less than min-width */
+  background-color: #c9c9c9;
+}
+
+.network-graph-sections
+{
+  box-shadow: inset 0 2px 0 0 rgba(#fff, 0.09),
+              inset 0 0 0 1px rgba(#000, 0.07),
+              inset 0 -1px 0 0 rgba(#000, 0.05);
+}
+
+.selected .network-graph-sections
+{
+  box-shadow: inset 0 1px 0 0 rgba(#fff, 0.08),
+              inset 0 0 0 1px rgba(#fff, 0.08),
+              inset 0 -1px 0 0 rgba(#000, 0.28);
+}
+
+.network_get_params
+{
+  margin-top: 4px;
+  border-collapse: collapse;
+  th
+  {
+    text-align: left;
+    padding-right: 8px;
+  }
+  th,
+  td
+  {
+    vertical-align: top;
+    padding-left: 0;
+  }
+}
+
+/* Request crafter */
+.request-crafter
+{
+  padding: 5px 20px;
+  input
+  {
+    width: 100%;
+  }
+  textarea
+  {
+    width: 100%;
+    height: 250px;
+  }
+  pre
+  {
+    width: 100%;
+    min-height: 250px;
+    border: solid thin black;
+  }
+}
+
+/* Options */
+.network-options
+{
+  padding: 5px 20px 25px 20px;
+  label
+  {
+    margin: 5px 0 0 0;
+    display: block;
+    color: #333;
+  }
+  .checkbox
+  {
+    padding: 0 10px 0 5px;
+  }
+  p
+  {
+    max-width: 60em;
+    line-height: 150%;
+  }
+  select
+  {
+    margin-left: 10px;
+  }
+  .header-override-input
+  {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+/* work-around CORE-46966: Big pre element breaks layout in a table */
+pre.network-body
+{
+  float: left;
+  margin-right: -10000000px;
+}

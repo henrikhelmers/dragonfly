@@ -14,6 +14,10 @@
   right: 0;
   top: 20px;
   border-top: 1px solid #e6e6e6;
+  .profiler-event
+  {
+    position: absolute;
+  }
 }
 
 .profiler-details-list
@@ -24,11 +28,10 @@
   overflow: auto;
   border-top: 1px solid #e6e6e6;
   width: 100%;
-}
-
-.profiler-details-list.profiler-no-status
-{
-  bottom: 0;
+  &.profiler-no-status
+  {
+    bottom: 0;
+  }
 }
 
 .profiler-status
@@ -40,11 +43,10 @@
   width: 100%;
   border-top: 1px solid #e6e6e6;
   text-align: center;
-}
-
-.profiler-status.profiler-no-status
-{
-  display: none;
+  &.profiler-no-status
+  {
+    display: none;
+  }
 }
 
 .profiler-empty
@@ -77,11 +79,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
-}
-
-.profiler-timeline-row.odd
-{
-  background-color: #f7f7f7;
+  &.odd
+  {
+    background-color: #f7f7f7;
+  }
+  &:hover .profiler-legend-label
+  {
+    color: #769fe1;
+  }
 }
 
 .profiler-legend-label
@@ -108,11 +113,6 @@
   height: 1px;
 }
 
-.profiler-timeline-row:hover .profiler-legend-label
-{
-  color: #769fe1;
-}
-
 .profiler-timeline-marker
 {
   position: absolute;
@@ -128,18 +128,16 @@
   top: -15px;
   color: #444;
   white-space: nowrap;
-}
-
-.profiler-timeline-marker-time:not(.first):not(.last)
-{
-  min-width: 60px;
-  margin-left: -30px;
-  text-align: center;
-}
-
-.profiler-timeline-marker-time.last
-{
-  right: 2px;
+  &:not(.first):not(.last)
+  {
+    min-width: 60px;
+    margin-left: -30px;
+    text-align: center;
+  }
+  &.last
+  {
+    right: 2px;
+  }
 }
 
 .profiler-event
@@ -149,32 +147,27 @@
   border-radius: 2px;
 }
 
-.profiler-timeline .profiler-event
-{
-  position: absolute;
-}
-
 .profiler-event-interval
 {
   margin: 3px 0;
-  box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.09),
-              inset 0 0 0 1px rgba(0, 0, 0, 0.07),
-              inset 0 -1px 0 0 rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 0 0 rgba(#fff, 0.09),
+              inset 0 0 0 1px rgba(#000, 0.07),
+              inset 0 -1px 0 0 rgba(#000, 0.05);
 }
 
 .profiler-event-interval.expandable:hover
 {
-  box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.09),
-              inset 0 0 0 1px rgba(0, 0, 0, 0.07),
-              inset 0 -1px 0 0 rgba(0, 0, 0, 0.05),
+  box-shadow: inset 0 2px 0 0 rgba(#fff, 0.09),
+              inset 0 0 0 1px rgba(#000, 0.07),
+              inset 0 -1px 0 0 rgba(#000, 0.05),
               0 0 0 3px #ceddf5;
 }
 
 .profiler-event-interval.non-expandable:hover
 {
-  box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.09),
-              inset 0 0 0 1px rgba(0, 0, 0, 0.07),
-              inset 0 -1px 0 0 rgba(0, 0, 0, 0.05),
+  box-shadow: inset 0 2px 0 0 rgba(#fff, 0.09),
+              inset 0 0 0 1px rgba(#000, 0.07),
+              inset 0 -1px 0 0 rgba(#000, 0.05),
               0 0 0 3px #ddd;
 }
 
@@ -266,19 +259,18 @@
 .profiler-event-tooltip
 {
   width: 200px;
+  li
+  {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
 }
 
 .profiler-event-tooltip-info
 {
   padding-top: 30px;
-}
-
-.profiler-event-tooltip li
-{
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 100%;
 }
 
 .profiler-event-tooltip-label

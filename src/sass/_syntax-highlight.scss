@@ -228,7 +228,7 @@ examine-objects key
 
 .css-inspector .non-editable .css-property-value
 {
-  color: #aaa;
+  color: $dimmed-foreground-color;
 }
 
 .import-rule
@@ -252,7 +252,6 @@ examine-objects key
 
 
 /* dom */
-
 .spotlight-node
 { /* TODO: Use same highlighting in CSS inspector */
   background-color: transparent;
@@ -284,32 +283,29 @@ examine-objects key
 .tree-style
 {
   background: transparent url('../ui-images/dom-tree-style.png') scroll repeat 9px 0;
-}
-
-.tree-style > div
-{
-  border: 1px solid transparent;
-  border-radius: 2px;
-  border-bottom-color: #fefefe;
-  background-image: -o-linear-gradient(-90deg, transparent 0,
-                                               transparent 1px,
-                                               #fefefe 1px);
-  background-repeat: no-repeat;
-}
-
-.tree-style > div > node:first-child:before
-{
-  display: inline-block;
-  vertical-align: middle;
-  content: '';
-  width: 7px;
-  height: 1px;
-  background:transparent url('../ui-images/dom-tree-style-h.png') scroll no-repeat 0 0;
-  margin-left: -8px;
-  margin-right: 1px;
-}
-
-.tree-style > div:first-child > span:first-child:before
-{
-  display: none;
+  > div
+  {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    border-bottom-color: #fefefe;
+    background-image: -o-linear-gradient(-90deg, transparent 0,
+                                                 transparent 1px,
+                                                 #fefefe 1px);
+    background-repeat: no-repeat;
+    > node:first-child:before
+    {
+      display: inline-block;
+      vertical-align: middle;
+      content: '';
+      width: 7px;
+      height: 1px;
+      background:transparent url('../ui-images/dom-tree-style-h.png') scroll no-repeat 0 0;
+      margin-left: -8px;
+      margin-right: 1px;
+    }
+    &:first-child > span:first-child:before
+    {
+      display: none;
+    }
+  }
 }

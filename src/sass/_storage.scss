@@ -1,0 +1,186 @@
+﻿.storage_view
+{
+  .sortable-table
+  {
+    tr
+      {
+      /* summation-row tweak, as it doesn't sum anything up in the cookie_manager,
+        it's just for the add_cookie/add_storage button */
+      &.sortable-table-summation-row
+      {
+        background: none;
+        td
+        {
+          border-width: 0;
+          border-top-width: 1px;
+          background: none;
+          padding-top: 7px;
+          padding-bottom: 11px;    
+        }
+      }
+      &.runtime_placeholder
+      {
+        display: none;
+      }
+    }
+    td,
+    th
+    {
+      vertical-align: top;
+      word-wrap: break-word;
+      min-width: 18px;
+      padding-right: 10px;
+    }
+    td
+    {
+      &.align-center,
+      &.align-right {
+        padding: 0 5px 0 5px;
+      }
+      .ellipsis_cont
+      {
+        /*
+          because .ellipsis is the only things that lives in this container,
+          height needs to be specified to take room
+        */
+        height: 13px;
+      }      
+    }
+    th
+    {
+      .ellipsis_cont
+      {
+        /* header row is lower */
+        height: 1em;
+        margin-top: 0;
+        margin-bottom: 2px;
+      }
+    }
+    /* ellipsis */
+    .ellipsis_cont
+    {
+      position: relative;
+      .ellipsis
+      {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    input.text,
+    textarea
+    {
+      width: 100%;
+      border: none;
+      border-radius: 0;
+    }    
+    /* "check" values */
+    .check
+    {
+      content: url("../ui-images/menu_check.png");
+    }
+    /* other sortable-table stuff specific to storage */
+    .header td
+    {
+      padding: 6px 5px 2px 20px;
+      position: relative;
+    }
+    /* columns */
+    /* .local_storage, .session_storage, .cookies and .widget_preferences might get their own here too */
+    .col_key
+    {
+      width: 25%;
+    }
+    .col_value
+    {
+      width: 75%;
+    }
+  }
+  .replaced-val
+  {
+    color: $dimmed-foreground-color;
+  }
+  /* editing */
+  .value_container
+  {
+    word-wrap: break-word;
+    white-space: pre;
+  }
+  .edit_container
+  {
+    display: none;
+    margin: -1px 0 2px -2px;
+    > div
+    {
+      /* extended with height for div.ellipsis_cont */
+      margin-top: 2px;
+      margin-bottom: 3px;
+      word-wrap: break-word;
+      max-height: 700px;
+    }
+  }
+  .edit_mode
+  {
+    .edit_container
+    {
+      display: block;
+    }
+    .value_container
+    {
+      display: none;
+    }    
+  }
+  input[type='text'],
+  textarea
+  {
+    padding: 3px 2px 1px 2px;
+    max-height: 700px;
+  }
+  input[type='datetime-local']
+  {
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+  /* Cookie manager specifics */
+  &.cookie_manager .sortable-table
+  {
+    .add_cookie_dropdown 
+    {
+      font-size: 11px;
+    }
+    /* columns */
+    .col_domain
+    {
+      width: 15%;
+    }
+    .col_name
+    {
+      width: 15%;
+    }
+    .col_value
+    {
+      width: 25%;
+    }
+    .col_path
+    {
+      width: 5%;
+    }
+    .col_expires
+    {
+      width: 15%;
+      min-width: 160px; /* due too the date-picker */
+    }
+    .col_secure
+    {
+      width: 7.5%;
+    }
+    .col_httponly
+    {
+      width: 7.5%;
+    }
+  }
+}

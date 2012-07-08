@@ -1,0 +1,462 @@
+﻿/* command line */
+
+.repl-output,
+.repl-input
+{
+  cursor: default;
+}
+
+.repl-output li,
+.repl-input
+{
+  margin-top: 1px;
+}
+
+.repl-output,
+.repl-output pre,
+.repl-input textarea
+{
+  word-wrap: break-word;
+}
+
+.repl-input
+{
+  display: table;
+  width: 100%;
+  .multiline
+  {
+    border: 1px dotted gray;
+    padding: 1px;
+    margin: -2px;
+  }
+  span,
+  div
+  {
+    display: table-cell;
+    vertical-align: top;
+  }
+  span + div
+  {
+    width: 100%;
+  }
+  textarea
+  {
+    width: 100%;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+.repl-lines
+{
+  white-space: pre;
+  .open
+  {
+    background-position: 0 -11px;
+  }
+}
+
+li > .repl-lines
+{
+  margin-left: 2em;
+  padding-left: 9px;
+  border-left: dotted thin black;
+}
+
+.repl-output
+{
+  .repl-pobj
+  {
+    color: blue;
+    &:hover
+    {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.repl-output-trace
+{
+  li
+  {
+    margin-left: 7em;
+    &:nth-of-type(1)
+    {
+      margin-left: 0em;
+    }
+    &:nth-of-type(2)
+    {
+      margin-left: 1em;
+    }    
+    &:nth-of-type(3)
+    {
+      margin-left: 2em;
+    }
+    &:nth-of-type(4)
+    {
+      margin-left: 3em;
+    }
+    &:nth-of-type(5)
+    {
+      margin-left: 4em;
+    }
+    &:nth-of-type(6)
+    {
+      margin-left: 5em;
+    }
+    &:nth-of-type(7)
+    {
+      margin-left: 6em;
+    }
+  }
+}
+
+.repl-output-go-to-source
+{
+  text-decoration: underline;
+  color: white;
+  float: right;
+  cursor: pointer;
+  &:hover
+  {
+    text-decoration: none;
+  }
+}
+
+.element-href,
+.element-src
+{
+  color: hsl(0, 0%, 50%);
+}
+
+.function-expression
+{
+  color: #fff;
+}
+
+.severity-info
+{
+  color: #3c86d9;
+}
+
+.severity-warn
+{
+  color: #fdde8f;
+}
+
+.severity-error
+{
+  color: #fc6854;
+}
+
+.repl-inline-expandable
+{
+  display: inline-block;
+  max-width: 100%;
+  word-wrap: break-word;
+  > examine-objects
+  {
+    padding: 0 1px;
+  }
+  > .dom-tree
+  {
+    padding: 0 1px;
+    padding-left: 10px;
+  }
+}
+
+.console {
+  .info-box
+  {
+    background: transparent;
+    color: #fff;
+  } 
+  textarea
+  {
+    background: transparent;
+    color: #fff;
+    vertical-align: text-top;
+  }
+  key,
+  text,
+  selector,
+  .js-source,
+  .element-name,
+  .repl-input,
+  .repl-output,
+  #examine-objects .object,
+  .js-source,
+  examine-objects .object,
+  .datetime
+  {
+    color: #fff;
+  }
+  value
+  {
+    white-space: normal;
+  }
+  &::selection
+  {
+    color: #fff;
+    background-color: #006ad4;
+  }
+  
+  /* DOM */
+  .dom-tree node
+  {
+    color: #9999ff;
+  }
+  .dom-tree key
+  {
+    color: #bfc5ff;
+  }
+  .dom-tree value
+  {
+    color: #e68d7c;
+  }
+  .dom-tree text
+  {
+    color: #fff;
+  }
+  .prototype-chain-object
+  {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  #target-element,
+  .dom-tree .spotlight-node:hover
+  {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.20);
+  }
+  
+  /* JavaScript */
+  .js_keywords
+  {
+    color: #66c;
+  }
+  .repl-pobj,
+  .js_builtins
+  {
+    color: #bfc5ff;
+  }
+  .null,
+  .undefined
+  {
+    color: #f25941;
+    font-weight: bold;
+  }
+  .boolean
+  {
+    color: #ff8b26;
+  }
+  .error
+  {
+    color: #ff6224;
+    font-style: italic;
+  }
+  .number
+  {
+    color: #ff4d40;
+  }
+  .string
+  {
+    color: #d46d59;
+  }
+  .object
+  {
+    color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  .punctuator
+  {
+    color: #fff;
+  }
+  .reg_exp
+  {
+    color: #62d962;
+  }
+  .js_builtins
+  {
+    color: #bfc5ff;
+  }
+  .js_keywords
+  {
+    color: #9999ff;
+    font-weight: bold;
+  }
+  .inspect-object-link:hover
+  {
+    text-decoration: none;
+  }
+  .inspect-node-link:hover
+  {
+    text-decoration: none;
+    background: #000;
+  }
+  .inspect-object-link:hover
+  {
+    background: #000;
+  }
+  .dom-tree input
+  {
+    background-image: url('../ui-images/expand-collapse-inverted.png');
+  }
+  .folder-key
+  {
+    background-image: url('../ui-images/expand-collapse-inverted.gif');
+  }
+  examine-objects examine-objects
+  {
+    background-image: url('../ui-images/dom-tree-style-inverted.png');
+  }
+  .tree-style > div
+  { 
+    background-color: transparent;
+  }
+  textarea
+  {
+    background: transparent;
+    color: #fff;
+    vertical-align: text-top;
+  }
+  key,
+  text,
+  selector,
+  .js-source,
+  .element-name,
+  .repl-input,
+  .repl-output,
+  #examine-objects .object,
+  .js-source,
+  examine-objects .object,
+  .datetime
+  {
+    color: #fff;
+  }
+  value
+  {
+    white-space: normal;
+  }
+  &::selection
+  {
+    color: #fff;
+    background-color: #006ad4;
+  }
+  
+  /* DOM */
+  .dom-tree node
+  {
+    color: #9999ff;
+  }
+  .dom-tree key
+  {
+    color: #bfc5ff;
+  }
+  .dom-tree value
+  {
+    color: #e68d7c;
+  }
+  .dom-tree text
+  {
+    color: #fff;
+  }
+  .prototype-chain-object
+  {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  #target-element,
+  .dom-tree .spotlight-node:hover
+  {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.20);
+  }  
+  
+  /* JavaScript */
+  .js_keywords
+  {
+    color: #66c;
+  }
+  .repl-pobj,
+  .js_builtins
+  {
+    color: #bfc5ff;
+  }
+  .null,
+  .undefined
+  {
+    color: #f25941;
+    font-weight: bold;
+  }
+  .boolean
+  {
+    color: #ff8b26;
+  }
+  .error
+  {
+    color: #ff6224;
+    font-style: italic;
+  }
+  .number
+  {
+    color: #ff4d40;
+  }
+  .string
+  {
+    color: #d46d59;
+  }
+  .object
+  {
+    color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  .punctuator
+  {
+    color: #fff;
+  }
+  .reg_exp
+  {
+    color: #62d962;
+  }
+  .js_builtins
+  {
+    color: #bfc5ff;
+  }
+  .js_keywords
+  {
+    color: #9999ff;
+    font-weight: bold;
+  }
+  .inspect-object-link:hover
+  {
+    text-decoration: none;
+  }
+  .inspect-node-link:hover
+  {
+    text-decoration: none;
+    background: #000;
+  }
+  .inspect-object-link:hover
+  {
+    background: #000;
+  }
+  .dom-tree input
+  {
+    background-image: url('../ui-images/expand-collapse-inverted.png');
+  }
+  .folder-key
+  {
+    background-image: url('../ui-images/expand-collapse-inverted.gif');
+  }
+  examine-objects examine-objects
+  {
+    background-image: url('../ui-images/dom-tree-style-inverted.png');
+  }
+  .tree-style > div
+  { 
+    background-color: transparent;
+  }
+}

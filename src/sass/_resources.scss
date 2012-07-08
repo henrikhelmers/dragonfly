@@ -20,12 +20,11 @@
   border: solid thin black;
   text-align: center;
   overflow: hidden;
-}
-
-.resource-image-box img
-{
-  max-width: 70px;
-  max-height: 70px;
+  img
+  {
+    max-width: 70px;
+    max-height: 70px;
+  }
 }
 
 .resource-icon
@@ -111,13 +110,12 @@
 .line-numbered-resource
 {
   position: relative;
-}
-
-.line-numbered-resource pre
-{
-  padding-top: 1px;
-  margin-top: 0;
-  padding-left: 10ex;
+  pre
+  {
+    padding-top: 1px;
+    margin-top: 0;
+    padding-left: 10ex;
+  }
 }
 
 .highlighted-line
@@ -138,8 +136,8 @@
   padding-top: 1px;
   text-align: right;
   background-color: hsl(0, 0%, 96%);
-  color: hsl(0, 0%, 70%);
-  border-right: 1px solid hsl(0, 0%, 70%);
+  color: $dimmed-foreground-color;
+  border-right: $dimmed-border-color;
   white-space: pre;
 }
 
@@ -150,7 +148,7 @@
   max-width: 100%;
   margin: 10px auto;
   background: #fff url("../ui-images/grid_checkers_black.png");
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(#000, 0.4);
 }
 
 .font-preview
@@ -160,12 +158,86 @@
 }
 
 
-/* Expander cell */
-
+/* TODO: Icon cell should be target by a class rather than this. */
 .resource-manager td:nth-child(1) {
   width: 16px;
 }
 
-.searchcell {
-  width: 250px;
+/* Metadata drawer */
+.metadata-drawer
+{
+  border-bottom: 1px solid $base-border-color;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  border-color: $base-border-color;
+  .details-table
+  {
+    width: 100%;
+    border-top: 1px solid $base-border-color;
+    padding: 10px 0;
+    tr
+    {
+      border-bottom: 1px solid $base-border-color;
+    }
+    th
+    {
+      width: 100px;
+      padding-right: 10px;
+      width: 82px;
+      text-align: right;
+    }
+  }
+  .metadata-drawer-summary-table
+  {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    &.unfolded
+    {
+      border-bottom: 1px solid $base-border-color;
+    }
+    th
+    {
+      text-align: center;
+      height: 32px;
+      &.iconcell
+      {
+        border: 0 solid $dimmed-border-color;
+        border-width: 0 1px;
+        width: 48px;
+      }
+      &.expandercell
+      {
+        width: 32px;
+        input[handler=metadata-drawer-toggle]
+        {
+          background: transparent url('../ui-images/icons/icon_arrow_right.png') scroll no-repeat 50% 100%;
+          border: none;
+          width: 17px;
+          height: 17px;
+          -o-transition: 0.2s;
+        }
+      }
+      &.urlcell
+      {
+        text-align: left;
+        padding-left: 12px;
+        word-wrap: break-word;
+      }
+    }
+    /* TODO: This should probably be a th. */
+    td
+    {
+      .searchcell {
+        width: 250px;
+      }
+    }
+  }
 }
+
+

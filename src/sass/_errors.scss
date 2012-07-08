@@ -1,0 +1,117 @@
+﻿.error-console
+{
+  .errors-table
+  {
+    tr
+    {
+      vertical-align: top;
+      &:hover
+      {
+        color: #000;
+      }
+      /* Expander & icon cell */
+      &:not(.error-details) > td:nth-child(1),
+      td.icon_cell
+      {
+        text-align: center;
+        width: 16px;
+      }
+      td
+      {
+        &.location
+        {
+          max-width: 150px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &.context
+        {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+      .expander
+      {
+        display: inline-block;
+        height: 7px;
+        width: 9px;
+        background: transparent url('../ui-images/toggle.png') no-repeat;
+        border: 0;
+        margin: 0 5px 0 2px;
+        padding: 0;
+        cursor: pointer;
+        -o-transition: -o-transform 0.2s;
+      }
+      &.expanded
+      {
+        .expander
+        {
+          -o-transform: rotate(90deg);
+        }
+        .details
+        {
+          display: block;
+        }
+      }
+    }
+    .expand_cell
+    {
+      border-right: none;
+      padding-right: 0;
+      width: 16px;
+    }
+    .max_exceeded_warning
+    {
+      text-align: center;
+      font-size: 1.4em;
+      padding: 18px 3px;
+      color: #808080;
+    }
+   .main
+    {
+      border-left: none;
+      padding-left: 3px;
+    }
+    .details
+    {
+      display: none;
+    }
+  }      
+  .errors-table .severity
+  {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    background: url('../ui-images/error-console-info.png') no-repeat;
+    &.debug
+    {
+      background-image: url('../ui-images/error-console-info.png');
+    }
+    &.information
+    {
+      background-image: url('../ui-images/error-console-info.png');
+    }  
+    &.verbose
+    {
+      background-image: url('../ui-images/error-console-warning.png');
+    }
+    &.error
+    {
+      background-image: url('../ui-images/error-console-error.png');
+    }
+    &.critical
+    {
+      background-image: url('../ui-images/error-console-error.png');
+    }
+  }
+}
+
+#error-console-css-filter
+{
+  width: 98%;
+  display: block;
+  margin: 3px 0;
+}
